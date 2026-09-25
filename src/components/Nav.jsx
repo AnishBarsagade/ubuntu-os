@@ -6,13 +6,13 @@ const Nav = () => {
   return (
     <nav>
       <div className="left">
-        <div className="apple-icon">
-          <img src="/navbar-icons/apple.svg" alt="" />
-        </div>
+        {/* <div className="apple-icon">
+          <img src="/navbar-icons/ubuntu.svg" alt="" />
+        </div> */}
         <div className="nav-item">
           <p>Anish Barsagade</p>
         </div>
-        <div className="nav-item">
+        {/* <div className="nav-item">
           <p>File</p>
         </div>
         <div className="nav-item">
@@ -20,7 +20,7 @@ const Nav = () => {
         </div>
         <div className="nav-item">
           <p>Terminal</p>
-        </div>
+        </div> */}
       </div>
       <div className="right">
         <div className="nav-icon">

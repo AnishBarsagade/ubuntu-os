@@ -1,14 +1,15 @@
 .dock {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   position: absolute;
-  bottom: 1rem;
-  left: 50%;
+  left: 1.5rem;
   transform: translate(-50%);
-  background-color: #514f4f70;
-  padding-inline: 1rem;
-  padding-block: 0.3rem;
+  background-color: #130518d8;
+  padding-inline: 0.7rem;
+  padding-block: 0.2rem;
   border-radius: 0.5rem;
+  height: 100%;
 
   .icon {
     padding: 0.5rem;
