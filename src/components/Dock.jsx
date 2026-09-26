@@ -4,32 +4,58 @@ import "./dock.scss";
 const Dock = ({ windowsState, setWindowsState }) => {
   return (
     <footer className="dock">
+      {/* GitHub */}
       <div
-        // get the previous state and only change the github one
         onClick={() => {
-          setWindowsState((state) => ({ ...state, github: true }));
+          setWindowsState((state) => ({
+            ...state,
+            github: {
+              ...state.github,
+              isOpen: true,
+              isMinimized: false,
+            },
+          }));
         }}
         className="icon github"
       >
         <img src="/doc-icons/github.svg" alt="" />
       </div>
+
+      {/* Notes */}
       <div
         onClick={() => {
-          setWindowsState((state) => ({ ...state, note: true }));
+          setWindowsState((state) => ({
+            ...state,
+            note: {
+              ...state.note,
+              isOpen: true,
+              isMinimized: false,
+            },
+          }));
         }}
         className="icon note"
       >
         <img src="/doc-icons/note.svg" alt="" />
       </div>
+
+      {/* Resume */}
       <div
         onClick={() => {
-          setWindowsState((state) => ({ ...state, resume: true }));
+          setWindowsState((state) => ({
+            ...state,
+            resume: {
+              ...state.resume,
+              isOpen: true,
+              isMinimized: false,
+            },
+          }));
         }}
         className="icon pdf"
       >
         <img src="/doc-icons/pdf.svg" alt="" />
       </div>
-      {/* calendar */}
+
+      {/* Calendar */}
       <div
         onClick={() => {
           window.open("https://calendar.google.com/", "_blank");
@@ -38,35 +64,55 @@ const Dock = ({ windowsState, setWindowsState }) => {
       >
         <img src="/doc-icons/calendar.svg" alt="" />
       </div>
+
+      {/* Spotify */}
       <div
         onClick={() => {
-          setWindowsState((state) => ({ ...state, spotify: true }));
+          setWindowsState((state) => ({
+            ...state,
+            spotify: {
+              ...state.spotify,
+              isOpen: true,
+              isMinimized: false,
+            },
+          }));
         }}
         className="icon spotify"
       >
         <img src="/doc-icons/spotify.svg" alt="" />
       </div>
-      {/* mail */}
+
+      {/* Mail */}
       <div
         onClick={() => {
-          window.open("mailto:anish@example.com", "_blank");
+          window.location.href = "mailto:anish@example.com";
         }}
         className="icon mail"
       >
         <img src="/doc-icons/mail.svg" alt="" />
       </div>
-      {/* for linked in */}
+
+      {/* LinkedIn */}
       <div
         onClick={() => {
-          window.open("https://www.linkedin.com/in/anishbarsagade/");
+          window.open("https://www.linkedin.com/in/anishbarsagade/", "_blank");
         }}
         className="icon link"
       >
         <img src="/doc-icons/link.svg" alt="" />
       </div>
+
+      {/* Terminal */}
       <div
         onClick={() => {
-          setWindowsState((state) => ({ ...state, cli: true }));
+          setWindowsState((state) => ({
+            ...state,
+            cli: {
+              ...state.cli,
+              isOpen: true,
+              isMinimized: false,
+            },
+          }));
         }}
         className="icon cli"
       >
