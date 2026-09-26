@@ -1,7 +1,7 @@
 .dock {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.7rem;
   position: absolute;
   left: 1.5rem;
   transform: translate(-50%);
@@ -26,7 +26,7 @@
     }
   }
   .icon:hover {
-    transform: scale(1.25) translateY(-20%);
+    transform: scale(1.1) translateY(-20%);
   }
   //get the front icon
   .icon:hover + .icon,

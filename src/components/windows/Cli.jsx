@@ -5,7 +5,7 @@ import "./cli.scss";
 
 const Terminal = TerminalModule.default;
 
-const Cli = () => {
+const Cli = ({ windowName, setWindowsState }) => {
   const commands = {
     about: {
       description: "About me",
@@ -103,7 +103,7 @@ Happy exploring! 🚀
 `;
 
   return (
-    <MacWindow>
+    <MacWindow windowName={windowName} setWindowsState={setWindowsState}>
       <div className="cli-window">
         <Terminal
           commands={commands}
