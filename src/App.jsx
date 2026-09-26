@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./app.scss";
 import Dock from "./components/Dock";
 import Nav from "./components/Nav";
@@ -7,7 +7,6 @@ import Note from "./components/windows/Note";
 import Resume from "./components/windows/Resume";
 import Spotify from "./components/windows/Spotify";
 import Cli from "./components/windows/Cli";
-import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const App = () => {
   // track the window open,minimized or maximize
@@ -38,16 +37,122 @@ const App = () => {
       isMaximized: false,
     },
   });
+  //now for shortcuts
+  const [activeWindow, setActiveWindow] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const isCommand = e.metaKey || e.ctrlKey;
+
+      // Don't trigger shortcuts while typing
+      const tag = e.target.tagName.toLowerCase();
+
+      if (tag === "input" || tag === "textarea" || e.target.isContentEditable) {
+        return;
+      }
+
+      // ⌘ + K → CLI
+      if (isCommand && e.shiftKey && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+
+        setWindowsState((state) => ({
+          ...state,
+          cli: {
+            ...state.cli,
+            isOpen: true,
+            isMinimized: false,
+          },
+        }));
+
+        setActiveWindow("cli");
+      }
+
+      // ⌘ + G → GitHub
+      if (isCommand && e.shiftKey && e.key.toLowerCase() === "g") {
+        e.preventDefault();
+
+        setWindowsState((state) => ({
+          ...state,
+          github: {
+            ...state.github,
+            isOpen: true,
+            isMinimized: false,
+          },
+        }));
+
+        setActiveWindow("github");
+      }
+
+      // ⌘ + M → Minimize
+      if (isCommand && e.shiftKey && e.key.toLowerCase() === "m") {
+        e.preventDefault();
+
+        if (activeWindow) {
+          setWindowsState((state) => ({
+            ...state,
+            [activeWindow]: {
+              ...state[activeWindow],
+              isMinimized: true,
+            },
+          }));
+        }
+      }
+
+      // ⌘ + W → Close
+      if (isCommand && e.key.toLowerCase() === "w") {
+        e.preventDefault();
+
+        if (activeWindow) {
+          setWindowsState((state) => ({
+            ...state,
+            [activeWindow]: {
+              ...state[activeWindow],
+              isOpen: false,
+            },
+          }));
+
+          setActiveWindow(null);
+        }
+      }
+
+      // ⌘ + Shift + Enter → Maximize / Restore
+      if (isCommand && e.shiftKey && e.key === "Enter") {
+        e.preventDefault();
+
+        if (activeWindow) {
+          setWindowsState((state) => ({
+            ...state,
+            [activeWindow]: {
+              ...state[activeWindow],
+              isMaximized: !state[activeWindow].isMaximized,
+            },
+          }));
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeWindow]);
   return (
     <>
       <main>
         <Nav />
-        <Dock windowsState={windowsState} setWindowsState={setWindowsState} />
+        <Dock
+          windowsState={windowsState}
+          setWindowsState={setWindowsState}
+          setActiveWindow={setActiveWindow}
+        />
         {windowsState.github.isOpen && !windowsState.github.isMinimized && (
           <Github
             windowName="github"
             windowsState={windowsState}
             setWindowsState={setWindowsState}
+            activeWindow={activeWindow}
+            setActiveWindow={setActiveWindow}
           />
         )}
         {windowsState.note.isOpen && !windowsState.note.isMinimized && (
@@ -55,6 +160,8 @@ const App = () => {
             windowName="note"
             windowsState={windowsState}
             setWindowsState={setWindowsState}
+            activeWindow={activeWindow}
+            setActiveWindow={setActiveWindow}
           />
         )}
 
@@ -63,6 +170,8 @@ const App = () => {
             windowName="resume"
             windowsState={windowsState}
             setWindowsState={setWindowsState}
+            activeWindow={activeWindow}
+            setActiveWindow={setActiveWindow}
           />
         )}
 
@@ -71,6 +180,8 @@ const App = () => {
             windowName="spotify"
             windowsState={windowsState}
             setWindowsState={setWindowsState}
+            activeWindow={activeWindow}
+            setActiveWindow={setActiveWindow}
           />
         )}
 
@@ -79,6 +190,8 @@ const App = () => {
             windowName="cli"
             windowsState={windowsState}
             setWindowsState={setWindowsState}
+            activeWindow={activeWindow}
+            setActiveWindow={setActiveWindow}
           />
         )}
       </main>

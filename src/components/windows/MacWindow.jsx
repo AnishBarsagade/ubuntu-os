@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Rnd } from "react-rnd";
 import "./window.scss";
 
@@ -9,6 +9,8 @@ const MacWindow = ({
   windowName,
   windowsState,
   setWindowsState,
+  activeWindow,
+  setActiveWindow,
 }) => {
   const [windowSize, setWindowSize] = useState({
     width,
@@ -53,8 +55,18 @@ const MacWindow = ({
 
   // MAXIMIZE / RESTORE
   const handleMaximize = () => {
-    if (!window.isMaximized) {
-      // Save current size + position
+    setWindowsState((state) => ({
+      ...state,
+      [windowName]: {
+        ...state[windowName],
+        isMaximized: !state[windowName].isMaximized,
+      },
+    }));
+  };
+
+  useEffect(() => {
+    if (window.isMaximized) {
+      // Save current size and position
       previousState.current = {
         width: windowSize.width,
         height: windowSize.height,
@@ -72,14 +84,6 @@ const MacWindow = ({
         x: 0,
         y: 0,
       });
-
-      setWindowsState((state) => ({
-        ...state,
-        [windowName]: {
-          ...state[windowName],
-          isMaximized: true,
-        },
-      }));
     } else {
       // Restore previous size
       setWindowSize({
@@ -92,21 +96,14 @@ const MacWindow = ({
         x: previousState.current.x,
         y: previousState.current.y,
       });
-
-      setWindowsState((state) => ({
-        ...state,
-        [windowName]: {
-          ...state[windowName],
-          isMaximized: false,
-        },
-      }));
     }
-  };
+  }, [window.isMaximized]);
 
   return (
     <Rnd
       size={windowSize}
       position={windowPosition}
+      onMouseDown={() => setActiveWindow(windowName)}
       dragHandleClassName="nav"
       // DRAG
       onDrag={(e, d) => {

@@ -5,7 +5,13 @@ import "./cli.scss";
 
 const Terminal = TerminalModule.default;
 
-const Cli = ({ windowName, windowsState, setWindowsState }) => {
+const Cli = ({
+  windowName,
+  windowsState,
+  setWindowsState,
+  activeWindow,
+  setActiveWindow,
+}) => {
   const commands = {
     about: {
       description: "About me",
@@ -49,7 +55,7 @@ Full Stack Developer @ Web Solutions (2020 - 2022)
     contact: {
       description: "Get contact information",
       usage: "contact",
-      fn: () => `Email: ankur@example.com
+      fn: () => `Email:anish@example.com
 Phone: +1 (555) 123-4567
 Location: San Francisco, CA`,
     },
@@ -72,9 +78,9 @@ Location: San Francisco, CA`,
     social: {
       description: "View social media links",
       usage: "social",
-      fn: () => `Twitter: @ankurdev
-LinkedIn: /in/ankurprajapati
-Portfolio: ankurprajapati.dev`,
+      fn: () => `Twitter: @anishdev
+LinkedIn: /in/anishprajapati
+Portfolio: anishbarsagade.dev`,
     },
 
     echo: {
@@ -107,6 +113,8 @@ Happy exploring! 🚀
       windowName={windowName}
       windowsState={windowsState}
       setWindowsState={setWindowsState}
+      activeWindow={activeWindow}
+      setActiveWindow={setActiveWindow}
     >
       <div className="cli-window">
         <Terminal
