@@ -1,0 +1,35 @@
+.cli-window {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 10rem;
+
+  // Ubuntu terminal background
+  background: #300a24;
+
+  // Ubuntu-style font
+  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 13px;
+
+  div[name="react-console-emulator"] {
+    height: 100%;
+    padding-bottom: 10rem;
+
+    background: transparent !important;
+
+    font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+    font-size: 13px !important;
+
+    * {
+      font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace !important;
+      font-size: 13px !important;
+    }
+  }
+
+  // Hide scrollbar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+}

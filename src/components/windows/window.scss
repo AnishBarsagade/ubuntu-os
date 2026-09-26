@@ -1,6 +1,5 @@
 .window {
-  
-  background-color: rgba(18, 12, 46, 0.996);
+  background-color: #300a24;
   border-radius: 0.8rem;
   overflow: hidden;
   height: 100%;
@@ -22,6 +21,7 @@
   .nav {
     padding-inline: 0.6rem;
     padding-block: 0.4rem;
+    background-color: rgba(6, 4, 16, 0.996);
     display: flex;
     gap: 1.5rem;
     align-content: center;
@@ -51,11 +51,11 @@
     height: 100%;
   }
 
-  *::-webkit-scrollbar{
-      width:6px;
+  *::-webkit-scrollbar {
+    width: 6px;
   }
 
-  *::-webkit-scrollbar-thumb{
+  *::-webkit-scrollbar-thumb {
     background-color: #8e068a;
     border-radius: 4px;
   }
