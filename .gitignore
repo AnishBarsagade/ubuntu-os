@@ -25,5 +25,4 @@ dist-ssr
 *.sw?
 
 public/bg-img2.jpg
-public/bg-img3.jpg
 public/navbar-icons/ubuntu.svg
