@@ -1,16 +1,74 @@
-# React + Vite
+# Ubuntu OS — React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based Ubuntu-inspired desktop environment built with React.
 
-Currently, two official plugins are available:
+This project recreates the feel of using an operating system inside a web browser, with draggable windows, a dock, keyboard shortcuts, and interactive app-style components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+[View the Live Demo](https://ubuntu-os-psi.vercel.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 GitHub
 
-## Expanding the ESLint configuration
+[View the Repository]((https://github.com/AnishBarsagade/ubuntu-os))
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 🖥️ Ubuntu-inspired desktop interface
+- 🪟 Draggable and resizable windows
+- ⌨️ Keyboard shortcuts
+- 📌 Interactive dock
+- 📂 App-style windows
+- 🔄 Window focus and layering
+- 🎨 Responsive and interactive UI
+- ⚡ Built with React and Vite
+
+## 🛠️ Tech Stack
+
+- React
+- JavaScript
+- Vite
+- SCSS
+- React Rnd
+
+## 📸 Preview
+
+Add a screenshot or GIF of the project here.
+
+## ⚙️ Run Locally
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_LINK
+```
+
+Go into the project folder:
+
+```bash
+cd YOUR_PROJECT_FOLDER
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in your terminal.
+
+## 📌 About
+
+I built this project to practice React while experimenting with creating a desktop-like user interface in the browser.
+
+There are still some features and improvements I want to add in the future.
+
+---
+
+Built with React ❤️
