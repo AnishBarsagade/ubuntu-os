@@ -33,7 +33,9 @@ This project recreates the feel of using an operating system inside a web browse
 
 ## 📸 Preview
 
-Add a screenshot or GIF of the project here.
+![Ubuntu OS Desktop](./screenshots/screenshot1.png)
+
+![Ubuntu OS](./screenshots/screenshot2.png)
 
 ## ⚙️ Run Locally
 
