@@ -10,7 +10,7 @@ This project recreates the feel of using an operating system inside a web browse
 
 ## 📂 GitHub
 
-[View the Repository]((https://github.com/AnishBarsagade/ubuntu-os))
+[View the Repository](https://github.com/AnishBarsagade/ubuntu-os)
 
 ## ✨ Features
 
